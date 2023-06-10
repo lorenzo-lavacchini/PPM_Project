@@ -1,10 +1,19 @@
-{%  extends 'recipes/base.html' %}
+{% extends 'recipes/base.html' %}
 
 {% block content %}
     <h1>Recipes app home</h1>
     {% for recipe in recipes %}
-        <h1>{{ recipe.title }}</h1>
-        <p>{{ recipe.author }} | {{ recipe.date_posted }}</p>
-        <p>{{ recipe.directions }}</p>
+        <div class="card" style="width: 18rem;">
+            <img class = "image-fluid" src="https://fakeimg.pl/50x40/cccccc/cccccc" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{recipe.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{recipe.author}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{recipe.date_posted}}</h6>
+                <p class="card-text">
+                    {{recipe.content}}
+                </p>
+                <a href="#" class="btn btn-primary">View Recipe</a>
+            </div>
+        </div>
     {% endfor %}
 {% endblock content %}
