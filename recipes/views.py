@@ -1,5 +1,6 @@
 
 from django.shortcuts import render, HttpResponse
+from . import models
 # Create your views here.
 
 recipes=[
@@ -23,6 +24,7 @@ recipes=[
     },
 ]
 def home(request):
+    recipes = models.Recipe.objects.all()
     context ={
         'recipes':recipes
     }
