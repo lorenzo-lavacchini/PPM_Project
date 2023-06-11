@@ -4,6 +4,8 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from . import models
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404, redirect
 # Create your views here.
 
 
@@ -13,6 +15,12 @@ def home(request):
         'recipes':recipes
     }
     return render(request, "recipes/home.html", context)
+
+def SearchRecipeView(request):
+    query = request.GET.get('q')
+    recipes = models.Recipe.objects.filter(title__icontains=query)
+    return render(request, 'recipes/search_recipe.html', {'recipes': recipes, 'query': query})
+
 class RecipeListView(ListView):
     model = models.Recipe
     template_name = "recipes/home.html"
@@ -44,6 +52,7 @@ class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         recipe = self.get_object()
         return self.request.user == recipe.author
+
 
 
 

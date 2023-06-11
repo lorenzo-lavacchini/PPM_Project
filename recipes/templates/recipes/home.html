@@ -1,7 +1,16 @@
 {% extends 'recipes/base.html' %}
 
 {% block content %}
-
+    <form class="form-inline" method="GET" action="{% url 'search-recipe' %}">
+        <div class="row">
+            <div class="col-3">
+                <input type="text" class="form-control" name="q" placeholder="Search recipe">
+            </div>
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </div>
+        </div>
+    </form>
     <div class="container">
     <h1 class="mt-3">All recipes</h1>
         <div class="row">
