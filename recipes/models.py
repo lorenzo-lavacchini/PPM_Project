@@ -8,6 +8,7 @@ class Recipe(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    favorite = models.ManyToManyField(User, related_name='favorite', blank=True)
 
     def get_absolute_url(self):
         return reverse("recipes-detail",kwargs={"pk": self.pk})
