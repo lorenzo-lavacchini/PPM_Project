@@ -1,0 +1,17 @@
+{% extends 'recipes/base.html' %}
+{% block content %}
+<h2>Results</h2>
+{% for recipe in recipes %}
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{ recipe.title }}</h5>
+            <p class="card-text">Author: {{ recipe.author }}</p>
+            <p class="card-text"><small class="text-muted">Date: {{ recipe.date }}</small></p>
+            <a href="{% url 'recipes-detail' recipe.id %}" class="btn btn-primary">View</a>
+        </div>
+    </div>
+    <br>
+{% empty %}
+    <h5>no recipe available.</h5>
+{% endfor %}
+{% endblock content %}}

@@ -26,6 +26,11 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'recipes-create' %}">Create Recipe</a>
             </li>
+           {% if user.is_authenticated %}
+           <li class="nav-item">
+                <a class="nav-link" href="{% url 'recipes-favorites-views' %}">View favorites</a>
+            </li>
+           {% endif %}
           </ul>
           <div class="navbar-nav">
                 {% if user.is_authenticated %}

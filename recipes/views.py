@@ -53,6 +53,21 @@ class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         recipe = self.get_object()
         return self.request.user == recipe.author
 
+@login_required
+def AddFavoriteView(request, recipe_id):
+    recipe = get_object_or_404(models.Recipe, id=recipe_id)
+    request.user.favorite.add(recipe)
+    return redirect('recipes-detail', pk=recipe_id)
 
+@login_required
+def RemoveFavoriteView(request, recipe_id):
+    recipe = get_object_or_404(models.Recipe, id=recipe_id)
+    request.user.favorite.remove(recipe)
+    return redirect('recipes-detail', pk=recipe_id)
+
+@login_required
+def FavoritesView(request):
+    favorite_recipe = request.user.favorite.all()
+    return render(request, 'recipes/favorites.html', {'recipes': favorite_recipe})
 
 
