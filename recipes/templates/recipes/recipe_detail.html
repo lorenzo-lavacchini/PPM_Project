@@ -1,0 +1,18 @@
+{% extends 'recipes/base.html' %}
+
+{% block content %}
+    <h1>Recipes n° {{ object.id }}</h1>
+        <div class="card" style="width: 18rem;">
+            <img class = "image-fluid" src="https://fakeimg.pl/50x40/cccccc/cccccc" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{object.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{object.author}}</h6>
+                <p class="card-text">{{ recipe.description }}</p>
+                <h6 class="card-subtitle mb-2 text-muted">{{object.created_at}}</h6>
+                <p class="card-text">
+                    {{object.content}}
+                </p>
+                <a href="#" class="btn btn-primary">View Recipe</a>
+            </div>
+        </div>
+{% endblock content %}
