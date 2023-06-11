@@ -12,7 +12,12 @@
                 <p class="card-text">
                     {{object.content}}
                 </p>
-                <a href="#" class="btn btn-primary">View Recipe</a>
             </div>
         </div>
+        {% if object.author == user%}
+        <div>
+            <a class="btn btn-primary" href="{% url 'recipes-update' object.id %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'recipes-delete' object.id %}">Delete</a>
+        </div>
+        {% endif %}
 {% endblock content %}
