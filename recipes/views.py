@@ -44,7 +44,6 @@ class RecipeDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     def test_func(self):
         recipe = self.get_object()
         return self.request.user == recipe.author
-def about(request):
-    return render(request, "recipes/about.html", {'title':'about us page'})
+
 
 
