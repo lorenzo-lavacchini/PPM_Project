@@ -2,7 +2,7 @@
 
 {% block content %}
         <h1 class="card-title mt-4">{{object.title}}</h1>
-        <h5 class="mt-2">Autore: {{ object.author }}</h5>
+        <h5 class="mt-2">Author: {{ object.author }}</h5>
         <p class="card-text">{{ recipe.description }}</p>
         <h6 class="card-subtitle mb-2 text-muted">Created on {{object.created_at}}</h6>
         {% if object.author == user%}
