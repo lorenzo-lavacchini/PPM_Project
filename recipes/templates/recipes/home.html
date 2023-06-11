@@ -20,11 +20,9 @@
                         <img class = "card-img-top" src="https://fakeimg.pl/50x40/cccccc/cccccc" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{recipe.title}}</h5>
+                            <h6 class="card-subtitle mb-2">Categoria : {{recipe.category}}</h6>
                             <h6 class="card-subtitle mb-2 text-muted">Autore: <span class="fst-italic">{{recipe.author}}</span></h6>
                             <h6 class="card-subtitle mb-2 text-muted">{{recipe.created_at}}</h6>
-                            <p class="card-text">
-                                {{recipe.content}}
-                            </p>
                             <a href="{% url 'recipes-detail' recipe.pk %}" class="btn btn-primary">View Recipe</a>
                         </div>
                     </div>

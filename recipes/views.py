@@ -30,14 +30,14 @@ class RecipeDetailView(DetailView):
 
 class RecipeCreateView(LoginRequiredMixin,CreateView):
     model = models.Recipe
-    fields = ['title','description']
+    fields = ['title','description','category']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
 class RecipeUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = models.Recipe
-    fields = ['title','description']
+    fields = ['title','description','category']
 
     def test_func(self):
         recipe = self.get_object()
