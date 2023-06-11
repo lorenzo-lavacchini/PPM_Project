@@ -1,9 +1,9 @@
 {% extends 'recipes/base.html' %}
 
 {% block content %}
-    <form class="form-inline" method="GET" action="{% url 'search-recipe' %}">
-        <div class="row">
-            <div class="col-3">
+    <form class="form-inline mt-4" method="GET" action="{% url 'search-recipe' %}">
+        <div class="row justify-content-center">
+            <div class="col-4">
                 <input type="text" class="form-control" name="q" placeholder="Search recipe">
             </div>
             <div class="col-2">
@@ -20,7 +20,7 @@
                         <img class = "card-img-top" src="https://fakeimg.pl/50x40/cccccc/cccccc" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">{{recipe.title}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">{{recipe.author}}</h6>
+                            <h6 class="card-subtitle mb-2 text-muted">Autore: <span class="fst-italic">{{recipe.author}}</span></h6>
                             <h6 class="card-subtitle mb-2 text-muted">{{recipe.created_at}}</h6>
                             <p class="card-text">
                                 {{recipe.content}}
