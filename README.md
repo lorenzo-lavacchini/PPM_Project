@@ -1,4 +1,5 @@
 # PPM_Project
+## Recipe Sharing Website
 Functionalities implemented:
 
 * Users can register, login and logout.
